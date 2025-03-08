@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>RKN's Resume</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                max-width: 800px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: var(--bg-color, #fff);
+                color: var(--text-color, #000);
+            }
+            h1, h2, h3 {
+                color: var(--heading-color, #333);
+            }
+            p, li {
+                color: var(--text-color, #555);
+            }
+            .date {
+                color: var(--date-color, grey);
+            }
+            hr {
+                border: none;
+                border-top: 1px solid var(--border-color, #ccc);
+                margin: 20px 0;
+            }
+            .friends-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+            }
+            .friend {
+                text-align: center;
+                max-width: 100px;
+            }
+            .friend img {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+            }
+
+            .theme-switch {
+                display: flex;
+                justify-content: flex-end;
+                margin-bottom: 20px;
+                }
+            .theme-switch button {
+                padding: 10px 20px;
+                cursor: pointer;
+                background-color: #333;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+            }
+
+            .dark-mode {
+                --bg-color: #1e1e1e;
+                --text-color: #ccc;
+                --heading-color: #fff;
+                --date-color: #bbb;
+                --border-color: #444;
+            }
+            
+            @media (max-width: 768px) {
+                body {
+                    padding: 10px;
+                }
+                h1 {
+                    font-size: 1.8em;
+                }
+                h2 {
+                    font-size: 1.5em;
+                }
+                h3 {
+                    font-size: 1.2em;
+                }
+                p, li {
+                    font-size: 1em;
+                }
+                .friend img {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="theme-switch">
+            <button id="theme-toggle">Switch to Night Mode</button>
+        </div>
+    
+        <header>
+            <h1>RKN</h1>
+            <p>A student and developer passionate about building innovative solutions and engaging with vibrant communities. Currently exploring game development, server management, and AI-driven learning platforms.</p>
+        </header>
+        <hr>
+
+        <section>
+            <h2>About Me</h2>
+            <p>I am still at the beginner stage of my journey, learning and creating new things every day. My interests revolve around Discord bots, Minecraft servers, and video games. I usually begin my day struggling to start a project from scratch — but the excitement of building keeps me going.</p>
+            <p>When I'm not working, I love investing time talking to new people on Discord, expanding my network, and sharing ideas.</p>
+        </section>
+        <hr>
+
+        <section>
+            <h2>Skills</h2>
+            <h3>Programming Languages</h3>
+            <ul>
+                <li>Python</li>
+                <li>Java</li>
+                <li>C#</li>
+                <li>Dart</li>
+                <li>GDScript</li>
+            </ul>
+            <h3>Soft Skills</h3>
+            <ul>
+                <li>Team Management</li>
+                <li>Community Management</li>
+                <li>Collaborative Work</li>
+                <li>Leadership</li>
+                <li>Strategic Thinking</li>
+            </ul>
+            <h3>Technical Skills</h3>
+            <ul>
+                <li>Game Server Development</li>
+                <li>Community Management</li>
+                <li>Discord Bot Development</li>
+                <li>Game Development</li>
+            </ul>
+        </section>
+        <hr>
+
+        <section>
+            <h2>Experience</h2>
+
+            <h3>Founder, <a href="https://stubits.com/" target="_blank">Stubits</a></h3>
+            <p class="date">December 2024 - Present</p>
+            <p>A revolutionary learning platform that empowers students through collaborative learning, smart scheduling, and AI-driven techniques. It personalizes study plans, tracks progress, and helps master concepts effectively and efficiently.</p>
+
+            <h3>Founder, <a href="https://preboards.in/" target="_blank">Preboards</a></h3>
+            <p class="date">Launching Soon</p>
+            <p>Preboards.in transforms pre-board exams into a competitive experience by partnering with schools to conduct board-level tests. We provide real-time ranks, performance analytics, and feedback, helping students identify their strengths and weaknesses. Our goal is simple — to prepare students for their finals with confidence and accuracy.</p>
+
+            <h3>Cofounder, <a href="https://prepnext.in/" target="_blank">Prepnext</a></h3>
+            <p class="date">January 2025 - Present</p>
+            <p>PrepNext empowers students by offering personalized learning paths and fostering collaborative growth. We believe every student deserves a unique route to success, combining innovative, engaging, and tailored learning experiences to help them achieve academic excellence.</p>
+
+            <h3>Community Manager & Lead Developer, <a href="https://www.youtube.com/@MrRandomUniverse" target="_blank">Mr. Random</a></h3>
+            <p class="date">February 2021 - Present</p>
+            <p>At Mr. Random, I solved 1000+ community queries, conducted 10+ custom gaming events using custom game servers, and developed 30+ custom Minecraft plugins to enhance server functionality. I was also a developer for India's most voted and world's 8th most voted Minecraft server of its time (Mr. Random Universe), contributing to its player vs player experience and innovative game design.</p>
+
+            <h3>Lead Administrator & Developer, <a href="https://discord.gg/PvEwjVwH" target="_blank">Harmonium Craft</a></h3>
+            <p class="date">July 2021 - March 2022</p>
+            <p>Harmonium Craft was India’s most voted modded survival Minecraft server, known for its unique blend of immersive gameplay and a thriving community. With 5k-6k unique players, it stood out as a hub for creativity, adventure, and collaboration.</p>
+
+            <h3>Lead Python Developer, <a href="https://discord.gg/C3JaBucz" target="_blank">Orator</a></h3>
+            <p class="date">May 2022 - May 2023</p>
+            <p>Orator is a powerful Text to Speech (TTS) bot designed to bring voice to your communities. Supporting over 50 languages and enhanced by AI-driven voices, it seamlessly transforms text into natural speech. With its innovative features and user-friendly commands, Orator has grown rapidly, being added to 21k+ servers and serving a vibrant community of 2.02 million members. Whether for accessibility, entertainment, or interactive experiences, Orator makes every conversation more engaging.</p>
+
+            <h3>Community Moderator, <a href="https://www.youtube.com/watch?v=nrbv3i6P1EA" target="_blank">WEX Mobile</a></h3>
+            <p class="date">February 2023 - April 2024</p>
+            <p>At Wex Mobile, I served as a Community Moderator, contributing to the expansion of this future battle royale game. Wex combines traditional shooter gameplay with character-specific abilities, enabling users to select distinctive hero classes. The game differs with its revolutionary ship-based deployment system, infusing a new strategic element to the battle royale genre. My responsibility was to moderate the community, encourage positive player interaction, answer questions, and maintain a friendly and interesting atmosphere for all players.</p>
+
+            <h3>Event Manager, <a href="https://www.youtube.com/@Mythpat" target="_blank">Mythpat</a></h3>
+            <p class="date">August 2021 - July 2022</p>
+            <p>At Mythpat, I coordinated and facilitated gaming-oriented community events, specifically **Minecraft**-based. Ranging from organizing custom game nights and in-game competitions to crafting interactive sessions, my task was to facilitate smooth event delivery and enhance player engagement. The objective was to foster a fun, competitive, and engaging environment, deepening the community's bond through thrilling gaming experiences.</p>
+
+            <h3>Event Manager, <a href="https://www.youtube.com/@AndreoBee" target="_blank">Andreobee</a></h3>
+            <p class="date">December 2020 - May 2021</p>
+            <p>At Andreobee, I organized and hosted innovative, gaming-oriented events for the community, with particular focus on Minecraft and other play-by-play interactive games. I worked to stage personalized games, thrilling competitions, and cooperative in-game activities, all designed to encourage participation and create a powerful, cohesive player base. Each event was developed to be entertaining and challenging as well, so the community stayed active and engaged.</p>
+        </section>
+        <hr>
+        <section>
+            <h2>My Dearest Friends</h2>
+            <div class="friends-container">
+                <div class="friend">
+                    <img src="https://i.imgur.com/8aNz93Q.png" alt="Yogita Aakash">
+                    <p>Yogita Aakash</p>
+                </div>
+                <div class="friend">
+                    <img src="https://i.imgur.com/dNTLt3W.jpg" alt="Fortune Miss">
+                    <p>Fortune Miss</p>
+                </div>
+                <div class="friend">
+                    <img src="https://i.imgur.com/NZqvfqz.png" alt="Dezire">
+                    <p>Dezire</p>
+                </div>
+                <div class="friend">
+                    <img src="https://i.imgur.com/gLlYvXq.png" alt="Nilmani">
+                    <p>Nilmani</p>
+                </div>
+                <div class="friend">
+                    <img src="https://i.imgur.com/5vP1HUK.png" alt="Laxxy Krsna">
+                    <p>Laxxy Krsna</p>
+                </div>
+                <div class="friend">
+                    <img src="https://i.imgur.com/ZCt34qX.png" alt="Priyansh">
+                    <p>Priyansh</p>
+                </div>
+                <div class="friend">
+                    <img src="https://i.imgur.com/Oxs7Xzk.png" alt="Burhan">
+                    <p>Burhan</p>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section>
+            <h2>Education</h2>
+            <h4>St. Teresa's Sr. Sec School (Ganesh Nagar, Udaipur)</h4>
+            <p class="date">10th; Percentage: 83% (2022-2023)</p>
+
+            <h4>Bhupal Noble's Public School (Sevashram, Udaipur)</h4>
+            <p class="date">12th; Percentage: xx% (2024-2025)</p>
+        </section>
+        <hr>
+        <script>
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                themeToggle.textContent = isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+            });
+        </script>
+    </body>
+    </html>
