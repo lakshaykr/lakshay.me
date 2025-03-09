@@ -36,24 +36,24 @@ class ChatHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Headers', 'Content-Type')
         self.end_headers()
 
-def do_GET(self):
+    def do_GET(self):
         if self.path == '/get-chats':
-             cursor.execute('SELECT username, message, timestamp FROM chats ORDER BY timestamp DESC')
-             chats = cursor.fetchall()
-             
-             # Convert UTC to IST for each chat
-             ist = pytz.timezone('Asia/Kolkata')
-             self.send_response(200)
-             self.send_header('Content-type', 'application/json')
-             self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')
-             self.end_headers()
-             self.wfile.write(json.dumps([{
-                 'username': row[0],
-                 'message': row[1],
-                 'timestamp': row[2].astimezone(ist).strftime('%d %b %Y, %I:%M %p IST')
-             } for row in chats]).encode())
+            cursor.execute('SELECT username, message, timestamp FROM chats ORDER BY timestamp DESC')
+            chats = cursor.fetchall()
+            
+            # Convert UTC to IST for each chat
+            ist = pytz.timezone('Asia/Kolkata')
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')
+            self.end_headers()
+            self.wfile.write(json.dumps([{
+                'username': row[0],
+                'message': row[1],
+                'timestamp': row[2].astimezone(ist).strftime('%d %b %Y, %I:%M %p IST')
+            } for row in chats]).encode())
 
- 
+
     def do_POST(self):
         if self.path == '/add-chat':
             content_length = int(self.headers['Content-Length'])
