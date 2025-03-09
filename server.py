@@ -37,39 +37,23 @@ class ChatHandler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
 
 def do_GET(self):
-    if self.path == '/get-chats':
-        cursor.execute('SELECT username, message, timestamp FROM chats ORDER BY timestamp ASC')  # Change DESC to ASC
-        chats = cursor.fetchall()
-        self.send_response(200)
-        self.send_header('Content-type', 'application/json')
-        self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')
-        self.end_headers()
+        if self.path == '/get-chats':
+             cursor.execute('SELECT username, message, timestamp FROM chats ORDER BY timestamp DESC')
+             chats = cursor.fetchall()
+             
+             # Convert UTC to IST for each chat
+             ist = pytz.timezone('Asia/Kolkata')
+             self.send_response(200)
+             self.send_header('Content-type', 'application/json')
+             self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')
+             self.end_headers()
+             self.wfile.write(json.dumps([{
+                 'username': row[0],
+                 'message': row[1],
+                 'timestamp': row[2].astimezone(ist).strftime('%d %b %Y, %I:%M %p IST')
+             } for row in chats]).encode())
 
-        formatted_chats = []
-        for row in chats:
-            username, message, timestamp = row
-
-            ist = pytz.timezone('Asia/Kolkata')
-
-            if isinstance(timestamp, str):
-                timestamp = datetime.fromisoformat(timestamp)  # Parse ISO format string
-
-            # Convert UTC timestamp to IST
-            utc_timestamp = timestamp.replace(tzinfo=pytz.UTC)  # Assume timestamp is in UTC
-            ist_timestamp = utc_timestamp.astimezone(pytz.timezone('Asia/Kolkata'))
-
-            # Format the timestamp
-            formatted_timestamp = ist_timestamp.strftime('%d %b %Y, %I:%M %p IST')
-            formatted_chats.append({
-                'username': username,
-                'message': message,
-                'timestamp': formatted_timestamp
-            })
-
-        self.wfile.write(json.dumps(formatted_chats).encode())
-    else:
-        super().do_GET()
-
+ 
     def do_POST(self):
         if self.path == '/add-chat':
             content_length = int(self.headers['Content-Length'])
