@@ -2,6 +2,7 @@ import http.server
 import socketserver
 import json
 import os
+from datetime import datetime
 
 PORT = 8000
 CHAT_FILE = 'chats.json'
@@ -26,7 +27,7 @@ class ChatHandler(http.server.SimpleHTTPRequestHandler):
                 chats = json.load(file)
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
-            self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')  # Add CORS header
+            self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')
             self.end_headers()
             self.wfile.write(json.dumps(chats).encode())
         else:
@@ -38,6 +39,9 @@ class ChatHandler(http.server.SimpleHTTPRequestHandler):
             post_data = self.rfile.read(content_length)
             new_chat = json.loads(post_data)
 
+            # Add timestamp to the chat message
+            new_chat['timestamp'] = datetime.now().strftime('%d %b %Y, %I:%M %p IST')
+
             with open(CHAT_FILE, 'r') as file:
                 chats = json.load(file)
 
@@ -48,7 +52,7 @@ class ChatHandler(http.server.SimpleHTTPRequestHandler):
 
             self.send_response(201)
             self.send_header('Content-type', 'application/json')
-            self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')  # Add CORS header
+            self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')
             self.end_headers()
             self.wfile.write(json.dumps({'status': 'success'}).encode())
 
