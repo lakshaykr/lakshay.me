@@ -12,8 +12,17 @@ if not os.path.exists(CHAT_FILE):
         json.dump([], file)
 
 class ChatHandler(http.server.SimpleHTTPRequestHandler):
+    def do_OPTIONS(self):
+        # Handle preflight requests
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.end_headers()
+
     def end_headers(self):
-        self.send_header('Access-Control-Allow-Origin', '*')
+        # Add CORS headers to all responses
+        self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')
         super().end_headers()
 
     def do_GET(self):
