@@ -8,7 +8,7 @@ themeToggle.addEventListener('click', () => {
 // Load existing chats on page load
 async function loadChats() {
     try {
-        const response = await fetch('/get-chats');
+        const response = await fetch('https://beingrkn-github-io.onrender.com/get-chats');
         const chats = await response.json();
         const chatBox = document.getElementById('chat-box');
         const chatCount = document.getElementById('chat-count');
@@ -28,7 +28,7 @@ async function loadChats() {
 
 async function saveChat(newChat) {
     try {
-        await fetch('/add-chat', {
+        await fetch('https://beingrkn-github-io.onrender.com/add-chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newChat)
