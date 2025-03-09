@@ -130,13 +130,20 @@ hr {
 
 /* Chat message formatting */
 #chat-box li {
-    list-style: none; 
-    padding: 5px 0;
+    list-style: none; /* Remove bullet points */
+    padding: 10px 0;
     border-bottom: 1px solid var(--border-color, #ddd);
 }
 
 #chat-box li:last-child {
     border-bottom: none;
+}
+
+.timestamp {
+    display: block;
+    font-size: 0.8em;
+    color: var(--date-color, grey);
+    margin-top: 5px;
 }
 
 /* Inline chat form */
@@ -203,3 +210,4 @@ button:hover {
         height: 250px;
     }
 }
+
