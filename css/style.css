@@ -129,11 +129,13 @@ hr {
 }
 
 /* Chat message formatting */
-
 #chat-box li {
     list-style: none;
-    padding: 10px 0;
+    padding: 10px 15px; /* Add padding to align content */
     border-bottom: 1px solid var(--border-color, #ddd);
+    display: flex;
+    flex-direction: column; /* Stack timestamp, username, and message vertically */
+    gap: 5px; /* Add space between elements */
 }
 
 #chat-box li:last-child {
@@ -144,6 +146,15 @@ hr {
     font-size: 0.8em;
     color: var(--date-color, grey);
     margin-right: 10px; /* Add space between timestamp and username */
+}
+
+.username {
+    font-weight: bold; /* Make username bold */
+    color: var(--heading-color, #333); /* Use heading color for username */
+}
+
+.message {
+    color: var(--text-color, #555); /* Use text color for message */
 }
 
 /* Inline chat form */
