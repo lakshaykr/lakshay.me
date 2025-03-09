@@ -20,10 +20,15 @@ class ChatHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Headers', 'Content-Type')
         self.end_headers()
 
+    def send_header(self, keyword, value):
+        # Prevent duplicate headers
+        if keyword.lower() == 'access-control-allow-origin':
+            return  # Skip adding the header if it already exists
+        super().send_header(keyword, value)
+
     def end_headers(self):
         # Add CORS headers to all responses
-        if not self.headers.get('Access-Control-Allow-Origin'):
-            self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')
+        self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')
         super().end_headers()
 
     def do_GET(self):
