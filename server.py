@@ -59,8 +59,11 @@ class ChatHandler(http.server.SimpleHTTPRequestHandler):
             new_chat = json.loads(post_data)
 
             # Add timestamp in IST
+
+# Add timestamp in IST
             ist = pytz.timezone('Asia/Kolkata')
-            new_chat['timestamp'] = datetime.now(ist).strftime('%d %b %Y, %I:%M %p IST')
+            timestamp = datetime.now(ist).strftime('%d %b %Y, %I:%M %p IST')
+            new_chat['timestamp'] = timestamp
 
             # Insert new chat into the database
             cursor.execute('''
