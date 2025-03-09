@@ -22,7 +22,8 @@ class ChatHandler(http.server.SimpleHTTPRequestHandler):
 
     def end_headers(self):
         # Add CORS headers to all responses
-        self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')
+        if not self.headers.get('Access-Control-Allow-Origin'):
+            self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')
         super().end_headers()
 
     def do_GET(self):
