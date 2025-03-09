@@ -1,1 +1,1 @@
-pytz
+psycopg2-binary
