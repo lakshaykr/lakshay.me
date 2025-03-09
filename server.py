@@ -4,6 +4,7 @@ import json
 import os
 from datetime import datetime
 import pytz  # Use pytz for timezone handling
+import psycopg2
 
 # Define the port
 PORT = int(os.getenv('PORT', 8000))  # Use PORT environment variable or default to 8000
