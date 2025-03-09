@@ -3,6 +3,7 @@ import socketserver
 import json
 import os
 from datetime import datetime
+import pytz  # For timezone handling
 
 PORT = 8000
 CHAT_FILE = 'chats.json'
@@ -39,8 +40,9 @@ class ChatHandler(http.server.SimpleHTTPRequestHandler):
             post_data = self.rfile.read(content_length)
             new_chat = json.loads(post_data)
 
-            # Add timestamp to the chat message
-            new_chat['timestamp'] = datetime.now().strftime('%d %b %Y, %I:%M %p IST')
+            # Add timestamp in IST
+            ist = pytz.timezone('Asia/Kolkata')
+            new_chat['timestamp'] = datetime.now(ist).strftime('%d %b %Y, %I:%M %p IST')
 
             with open(CHAT_FILE, 'r') as file:
                 chats = json.load(file)
