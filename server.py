@@ -3,8 +3,10 @@ import socketserver
 import json
 import os
 from datetime import datetime
-import psycopg2
-from psycopg2 import sql
+import pytz  # Use pytz for timezone handling
+
+# Define the port
+PORT = int(os.getenv('PORT', 8000))  # Use PORT environment variable or default to 8000
 
 # Database connection details
 DATABASE_URL = os.getenv('DATABASE_URL')  # Set this in Render's environment variables
@@ -54,6 +56,10 @@ class ChatHandler(http.server.SimpleHTTPRequestHandler):
             content_length = int(self.headers['Content-Length'])
             post_data = self.rfile.read(content_length)
             new_chat = json.loads(post_data)
+
+            # Add timestamp in IST
+            ist = pytz.timezone('Asia/Kolkata')
+            new_chat['timestamp'] = datetime.now(ist).strftime('%d %b %Y, %I:%M %p IST')
 
             # Insert new chat into the database
             cursor.execute('''
