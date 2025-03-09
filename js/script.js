@@ -16,7 +16,10 @@ async function loadChats() {
         chatBox.innerHTML = '';
         chats.forEach(chat => {
             const chatItem = document.createElement('li');
-            chatItem.textContent = `${chat.username}: ${chat.message}`;
+            chatItem.innerHTML = `
+                <strong>${chat.username}:</strong> ${chat.message}
+                <span class="timestamp">${chat.timestamp}</span>
+            `;
             chatBox.appendChild(chatItem);
         });
 
