@@ -40,6 +40,9 @@ class ChatHandler(http.server.SimpleHTTPRequestHandler):
         if self.path == '/get-chats':
             cursor.execute('SELECT username, message, timestamp FROM chats ORDER BY timestamp DESC')
             chats = cursor.fetchall()
+            
+            # Convert UTC to IST for each chat
+            ist = pytz.timezone('Asia/Kolkata')
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')
@@ -47,10 +50,9 @@ class ChatHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(json.dumps([{
                 'username': row[0],
                 'message': row[1],
-                'timestamp': row[2].strftime('%d %b %Y, %I:%M %p IST')
+                'timestamp': row[2].astimezone(ist).strftime('%d %b %Y, %I:%M %p IST')
             } for row in chats]).encode())
-        else:
-            super().do_GET()
+
 
     def do_POST(self):
         if self.path == '/add-chat':
