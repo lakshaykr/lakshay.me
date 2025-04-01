@@ -31,7 +31,7 @@ class ChatHandler(http.server.SimpleHTTPRequestHandler):
     def do_OPTIONS(self):
         # Handle preflight requests
         self.send_response(200)
-        self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')
+        self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.me')
         self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
         self.send_header('Access-Control-Allow-Headers', 'Content-Type')
         self.end_headers()
@@ -45,7 +45,7 @@ class ChatHandler(http.server.SimpleHTTPRequestHandler):
             ist = pytz.timezone('Asia/Kolkata')
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
-            self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')
+            self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.me')
             self.end_headers()
             self.wfile.write(json.dumps([{
                 'username': row[0],
@@ -75,7 +75,7 @@ class ChatHandler(http.server.SimpleHTTPRequestHandler):
 
             self.send_response(201)
             self.send_header('Content-type', 'application/json')
-            self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.github.io')
+            self.send_header('Access-Control-Allow-Origin', 'https://beingrkn.me')
             self.end_headers()
             self.wfile.write(json.dumps({'status': 'success'}).encode())
 
