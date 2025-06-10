@@ -232,6 +232,34 @@ button:hover {
   }
 }
 
+.small-rectangle-youtube {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+  .small-rectangle-youtube {
+    width: 700px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 991px) and (min-width: 768px) {
+  .small-rectangle-youtube {
+    width: 600px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .small-rectangle-youtube {
+    width: 100%;
+  }
+}
+
+
 /* Responsive design */
 @media (max-width: 768px) {
     #chat-form {
