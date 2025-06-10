@@ -205,8 +205,8 @@ button:hover {
     border-color: var(--input-border, #555);
 }
 .small-rectangle-image {
-  width: 200px;     
-  height: 120px;    
+  width: 1280px;     
+  height: 720px;    
   object-fit: cover;
   /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); */
 }
