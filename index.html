@@ -165,13 +165,12 @@
         <p class="date">Image Preview:</p>
         <img src="./images/terrain.png" alt="Among Us" class="small-rectangle-image">
 
-        <h3>Custom Trail Rendering Engine (Python + Pygame)</h3>
-        <p>A custom-built trail rendering engine developed using Python and Pygame.
-        This project focuses on dynamically generating smooth, visually appealing trails behind moving objects-ideal for visual effects in games and simulations. 
-        The engine efficiently handles fading, color transitions, and performance optimization to maintain fluid rendering, even under heavy object motion. 
-        Built from scratch without external libraries, this project showcases low-level control over graphics and creative effect design using Pygame.</p>
-        <p class="date">Image Preview:</p>
-        <img src="./images/trail.png" alt="Among Us" class="small-rectangle-image">
+        <h3>Minecraft–Discord Voice Verification System (Java, Python, MongoDB)</h3></h3>
+        <p>For Mr. Random’s Minecraft SMP, I developed a real-time voice verification system that connected the Minecraft Java server with his Discord community using MongoDB. 
+        The system allowed users to register for the SMP, during which a document was created in a MongoDB database containing their in-game name (ign), Discord ID (discord_id), and a voice_state boolean.
+        A custom Discord bot written in Python monitored users' voice channel activity and updated the voice_state to true whenever a user joined a VC, and to false when they left.
+        On the server side, I created a custom Minecraft plugin in Java that regularly queried the database every second. Before allowing a player to join, the plugin checked whether their voice_state was set to true.
+        If not, they were prevented from joining. Additionally, if a player left the Discord VC while already in-game, the plugin would automatically detect the change and kick them from the server in real time. This integration ensured that only those actively participating in the voice chat were allowed to play, encouraging better communication and collaboration among players. The project showcased seamless cross-platform synchronization between Minecraft, Discord, and MongoDB.</p>
 
         <h3>Custom Model Renderer for Minecraft (Java)</h3>
         <p>Developed a custom model rendering system for Minecraft modding in Java. 
