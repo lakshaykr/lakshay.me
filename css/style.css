@@ -242,7 +242,7 @@ button:hover {
 @media (min-width: 992px) {
   .small-rectangle-youtube {
     width: 700px;
-    height: 200px;
+    height: 370px;
 
   }
 }
@@ -251,7 +251,7 @@ button:hover {
 @media (max-width: 991px) and (min-width: 768px) {
   .small-rectangle-youtube {
     width: 600px;
-    height: 100px;
+    height: 300px;
 
   }
 }
