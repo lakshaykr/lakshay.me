@@ -204,6 +204,13 @@ button:hover {
     color: var(--text-color, #ccc);
     border-color: var(--input-border, #555);
 }
+.small-rectangle-image {
+  width: 200px;     
+  height: 120px;    
+  object-fit: cover;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); */
+}
+
 
 /* Responsive design */
 @media (max-width: 768px) {
