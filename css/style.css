@@ -204,12 +204,33 @@ button:hover {
     color: var(--text-color, #ccc);
     border-color: var(--input-border, #555);
 }
-.small-rectangle-image {
-  width: 700px;     
 
-  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); */
+.small-rectangle-image {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
+/* Desktop */
+@media (min-width: 992px) {
+  .small-rectangle-image {
+    width: 700px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 991px) and (min-width: 768px) {
+  .small-rectangle-image {
+    width: 600px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .small-rectangle-image {
+    width: 100%;
+  }
+}
 
 /* Responsive design */
 @media (max-width: 768px) {
