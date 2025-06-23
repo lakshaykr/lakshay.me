@@ -211,6 +211,24 @@ button:hover {
   display: block;
 }
 
+.tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* spacing between badges */
+    padding: 10px;
+}
+
+.tech-badges img {
+    height: 40px; /* control size of badges */
+    width: auto;
+    transition: transform 0.2s;
+}
+
+.tech-badges img:hover {
+    transform: scale(1.1);
+
+    
 /* Desktop */
 @media (min-width: 992px) {
   .small-rectangle-image {
